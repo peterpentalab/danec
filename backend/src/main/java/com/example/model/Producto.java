@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 public class Producto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,5 +25,14 @@ public class Producto {
     @JoinColumn(name = "planta_id")
     private Planta planta;
 
-    // Getters y setters
+    // Getter y Setter para fechaRegistro
+    public LocalDateTime getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDateTime fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    // Otros getters y setters...
 }
