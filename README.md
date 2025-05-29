@@ -66,7 +66,7 @@ cd backend
 mvn clean install
 mvn spring-boot:run
 ```
-
+Cuando se ejecuta mvn clean install Maven buscará el pom.xml en la raíz de backend para compilar y resolver todas las dependencias del proyecto.
 El servicio estará disponible en: `http://localhost:8080`
 
 ---
