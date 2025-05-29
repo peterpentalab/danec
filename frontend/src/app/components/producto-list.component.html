@@ -1,0 +1,21 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Fecha Registro</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos">
+      <td>{{ producto.nombre }}</td>
+      <td>{{ producto.tipo }}</td>
+      <td>{{ producto.fechaRegistro | date:'short' }}</td>
+      <td>
+        <button (click)="eliminar(producto.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

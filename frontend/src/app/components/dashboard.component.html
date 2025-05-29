@@ -1,0 +1,6 @@
+
+<div *ngFor="let planta of plantas" class="planta-card">
+  <h2>{{ planta.nombre }}</h2>
+  <p>Ubicación: {{ planta.ubicacion }}</p>
+  <p><strong>Total Productos:</strong> {{ productosPorPlanta[planta.id] || 0 }}</p>
+</div>
