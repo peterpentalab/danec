@@ -75,7 +75,6 @@ El servicio estará disponible en: `http://localhost:8080`
 
 ```bash
 cd frontend
-ng new frontend-app --directory . --routing --style css
 npm install
 ng serve
 ```
