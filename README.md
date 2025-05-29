@@ -18,6 +18,7 @@ Sistema Full Stack para gestionar plantas de producción y productos alimenticio
 ```
 plant-product-system/
 ├── backend/
+├── pom.xml
 │   ├── src/main/java/com/example/
 │   │   ├── controller/
 │   │   ├── model/
