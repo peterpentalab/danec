@@ -103,12 +103,6 @@ La aplicación se ejecutará en: `http://localhost:4200`
 
 ---
 
-## 📦 Autor
-
-Generado automáticamente por ChatGPT - OpenAI + Ingeniería de Software
-
----
-
 ## 🧩 Formularios con Modales
 
 La aplicación incluye:
