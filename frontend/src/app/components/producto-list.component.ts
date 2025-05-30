@@ -1,16 +1,21 @@
-
-import { Component, Input } from '@angular/core';
-import { Producto } from '../models/producto';
-import { ProductosService } from '../services/productos.service';
+import { Component, OnInit } from '@angular/core';
+import { ProductoService } from '../services/producto.service';
+import { Producto } from '../models/producto.model';
 
 @Component({
   selector: 'app-producto-list',
   templateUrl: './producto-list.component.html'
 })
-export class ProductoListComponent {
-  @Input() productos: Producto[] = [];
+export class ProductoListComponent implements OnInit {
+  productos: Producto[] = [];
 
-  constructor(private productoService: ProductosService) {}
+  constructor(private productoService: ProductoService) {}
+
+  ngOnInit() {
+    this.productoService.getProductos().subscribe(data => this.productos = data);
+  }
+
+  editar(producto: Producto) {}
 
   eliminar(id: number) {
     this.productoService.deleteProducto(id).subscribe(() => {

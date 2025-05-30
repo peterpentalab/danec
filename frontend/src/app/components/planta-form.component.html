@@ -1,0 +1,12 @@
+<div class="container">
+  <h3>{{planta.id ? 'Editar' : 'Crear'}} Planta</h3>
+  <form (ngSubmit)="guardar()">
+    <label>Nombre:</label>
+    <input [(ngModel)]="planta.nombre" name="nombre" required>
+
+    <label>Ubicación:</label>
+    <input [(ngModel)]="planta.ubicacion" name="ubicacion">
+
+    <button type="submit">Guardar</button>
+  </form>
+</div>

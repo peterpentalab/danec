@@ -1,50 +1,40 @@
-
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Producto } from '../models/producto';
+import { Component, OnInit } from '@angular/core';
+import { ProductoService } from '../services/producto.service';
+import { PlantaService } from '../services/planta.service';
+import { Producto } from '../models/producto.model';
+import { Planta } from '../models/planta.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto-form',
   templateUrl: './producto-form.component.html'
 })
 export class ProductoFormComponent implements OnInit {
-  @Input() producto: Producto | null = null;
-  @Input() plantaId: number = 0;
-  @Output() onSave = new EventEmitter<Producto>();
-  @Output() onCancel = new EventEmitter<void>();
+  producto: Producto = { id: 0, nombre: '', tipo: '', plantaId: 0 };
+  plantas: Planta[] = [];
 
-  form: FormGroup;
+  constructor(
+    private productoService: ProductoService,
+    private plantaService: PlantaService,
+    private router: Router
+  ) {}
 
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      nombre: ['', Validators.required],
-      tipo: ['']
+  ngOnInit() {
+    this.plantaService.getPlantas().subscribe(data => {
+      this.plantas = data;
     });
   }
 
-  ngOnInit(): void {
-    if (this.producto) {
-      this.form.patchValue({
-        nombre: this.producto.nombre,
-        tipo: this.producto.tipo
-      });
-    }
-  }
-
-  submit(): void {
-    if (this.form.valid) {
-      const formValues = this.form.value;
-      const newProducto: Producto = {
-        id: this.producto?.id || 0,
-        nombre: formValues.nombre,
-        tipo: formValues.tipo,
-        plantaId: this.plantaId
-      };
-      this.onSave.emit(newProducto);
-    }
-  }
-
-  cancel(): void {
-    this.onCancel.emit();
+  guardar() {
+    console.log('Enviando producto:', this.producto);
+    this.productoService.saveProducto(this.producto).subscribe({
+      next: () => {
+        console.log('Producto creado con éxito');
+        this.router.navigate(['/productos']);
+      },
+      error: (err) => {
+        console.error('Error al guardar producto:', err);
+      }
+    });
   }
 }

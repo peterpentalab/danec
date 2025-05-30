@@ -1,0 +1,33 @@
+<nav class="menu">
+  <ul>
+    <li><a routerLink="/">Dashboard</a></li>
+    <li><a routerLink="/plantas">Plantas</a></li>
+    <li><a routerLink="/plantas/crear">Crear Planta</a></li>
+    <li><a routerLink="/productos">Productos</a></li>
+    <li><a routerLink="/productos/crear">Crear Producto</a></li>
+  </ul>
+</nav>
+
+<div class="contenido">
+  <router-outlet></router-outlet>
+</div>
+
+<style>
+  .menu {
+    background: #333;
+    padding: 1rem;
+    color: white;
+  }
+  .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  .contenido {
+    padding: 1rem;
+  }
+</style>

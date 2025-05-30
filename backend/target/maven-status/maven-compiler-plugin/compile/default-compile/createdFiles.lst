@@ -1,0 +1,9 @@
+com\danec\controller\PlantaController.class
+com\danec\repository\PlantaRepository.class
+com\danec\model\Producto.class
+com\danec\repository\ProductoRepository.class
+com\danec\controller\ProductoController.class
+com\danec\service\PlantaService.class
+com\danec\PlantProductSystemApplication.class
+com\danec\model\Planta.class
+com\danec\service\ProductoService.class

@@ -1,0 +1,19 @@
+<div class="container">
+  <h3>Lista de Plantas</h3>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Nombre</th><th>Ubicación</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let planta of plantas">
+        <td>{{planta.id}}</td>
+        <td>{{planta.nombre}}</td>
+        <td>{{planta.ubicacion}}</td>
+        <td>
+          <button (click)="editar(planta)">Editar</button>
+          <button (click)="eliminar(planta.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
